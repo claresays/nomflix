@@ -1,6 +1,6 @@
 import React from "react";
 import TVPresenter from "./TVPresenter";
-import { tvAPI } from "../../api";
+import { tvAPI } from "api";
 
 export default class extends React.Component{
     state={
@@ -22,13 +22,13 @@ export default class extends React.Component{
                 error: "Can't find TV show information."
             })
         } finally {
-
+            this.setState({loading:false});
         }
     }
 
     render() {
         const {topRated,popular,airingToday, loading, error} = this.state;
-       
+
         return (<TVPresenter 
             topRated={topRated}
             popular={popular}
